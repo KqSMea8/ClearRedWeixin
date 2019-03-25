@@ -1,8 +1,29 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    
+
     repositories {
+        maven {
+            url "http://maven.oa.com/nexus/content/groups/androidbuild/"
+        }
+        maven {
+            url "http://maven.oa.com/nexus/content/repositories/tencentvideo/"
+            credentials {
+                username "qqlive"
+                password "qqlive"
+            }
+        }
+
+        maven {
+            url "http://maven.oa.com/nexus/content/repositories/tencentvideo-snapshot/"
+            credentials {
+                username "qqlive"
+                password "qqlive"
+            }
+        }
+        maven {
+            url "http://maven.oa.com/nexus/content/repositories/thirdparty-snapshots"
+        }
         google()
         jcenter()
     }
@@ -15,12 +36,35 @@ buildscript {
     }
 }
 
+
 allprojects {
     repositories {
-        google()
-        jcenter()
+        maven {
+            url "http://maven.oa.com/nexus/content/groups/androidbuild/"
+        }
+
+        maven {
+            url "http://maven.oa.com/nexus/content/repositories/tencentvideo/"
+            credentials {
+                username "qqlive"
+                password "qqlive"
+            }
+        }
+
+        maven {
+            url "http://maven.oa.com/nexus/content/repositories/tencentvideo-snapshot/"
+            credentials {
+                username "qqlive"
+                password "qqlive"
+            }
+        }
+
+        maven {
+            url "http://maven.oa.com/nexus/content/repositories/thirdparty-snapshots"
+        }
     }
 }
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir
